@@ -4,9 +4,12 @@ var hmd=angular.module("hmd",[]);
 			callback=`).then(function(data){
 					$scope.list=data.data.data;
 					console.log(data.data.data)
-					if(!$scope.list.comment_count_show){
-						$scope.list.comment_count_show=0;
-					};
+					
+					for(var i=0;i<$scope.list.length;i++){
+						if(!$scope.list[i].comment_count_show){
+							$scope.list[i].comment_count_show=0;
+						}
+					}
 			});
 			
 			$scope.remove=function(i){

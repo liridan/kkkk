@@ -20,7 +20,12 @@ hcl.factory("mydata", function($q) {
 hcl.controller("circont", ["$scope", "$routeParams", "mydata", function($scope, $routeParams, mydata) {
 	mydata.then(function(data) {
 		console.log(data);
-		$scope.arr = data
-	})
+		$scope.arr = data;
+		for(var i=0;i<$scope.arr.length;i++){
+						if(!$scope.arr[i].pic_453x254){
+							$scope.arr[i].pic_453x254=$scope.arr[i].pic_450x252;
+						}
+					}
+	});
 
 }]);
